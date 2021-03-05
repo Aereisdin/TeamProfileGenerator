@@ -45,7 +45,7 @@ const promptUser2 = () => {
         message: 'What is the office number of your team manager?',
       }])
       .then((answer) => {
-          const teamManager = new Manager(answer.managername, answer.managerid, answer.manageremail, answer.office);
+          const teamManager = new Manager(answer.managername.trim(), answer.managerid.trim(), answer.manageremail.trim(), answer.office.trim());
           managerArray.push(teamManager);
           promptChoices();
     })
@@ -90,7 +90,7 @@ const promptUser2 = () => {
         message: 'What is the Github username of the engineer?',
       }])
       .then((a) => {
-        const eng = new Engineer(a.engineername, a.engineerid, a.engineeremail, a.githubname);
+        const eng = new Engineer(a.engineername.trim(), a.engineerid.trim(), a.engineeremail.trim(), a.githubname.trim());
         engineerArray.push(eng);
         promptChoices();
       })
@@ -118,7 +118,7 @@ const promptUser2 = () => {
         message: 'What is the name of the school the intern attends/attended?',
       }])
       .then((ans) => {
-          const int = new Intern(ans.internname, ans.internid, ans.internemail, ans.internschool);
+          const int = new Intern(ans.internname.trim(), ans.internid.trim(), ans.internemail.trim(), ans.internschool.trim());
           internArray.push(int)
           promptChoices();
       })
@@ -151,7 +151,7 @@ const writeTeamProfile = () => {
         <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${Engineer.Id}</li>
         <li class="list-group-item">Email: <a href = "mailto: ${Engineer.email}">${Engineer.email}</a></li>
-        <li class="list-group-item">Github: <a href="https://www.github.com/${Engineer.Githubname} target="_blank">${Engineer.Githubname}</a></li>
+        <li class="list-group-item">Github: <a href="https://www.github.com/${Engineer.Githubname}" target="_blank">${Engineer.Githubname}</a></li>
         </ul>
         </div>`;
         cardArray.push(engineerCard);
@@ -232,5 +232,4 @@ const writeHTML = () => {
     </body>
     </html>`
     fs.writeFile('./dist/teamprofile.html', teamProfile, (err) => console.error(err));
-
 }
