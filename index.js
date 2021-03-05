@@ -224,7 +224,7 @@ const writeHTML = () => {
     <header>Team Profile</header>
     <main class="container fluid">
         <section class="row" id="cards">
-        ${cardArray.toString()}
+        ${cardArray.join('')}
         </section>
     </main>
     <script src="https://kit.fontawesome.com/347692fd4f.js" crossorigin="anonymous"></script>    
